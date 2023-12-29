@@ -1,0 +1,50 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Search cards
+    </ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button (click)="openSettings()">
+        <ion-icon name="settings" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-header collapse="condense">
+  <ion-title size="large">Search cards</ion-title>
+  </ion-header>
+
+  <ion-header>
+
+    <ion-toolbar>
+
+      <ion-searchbar
+        (ionChange)= "buscar( {event : $event} )"
+        placeholder="Search Card"
+        animated
+        showCancelButton="focus"
+        [(ngModel)]="cardSearch">
+      </ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list *ngIf="cards$ | async as item">
+    <ion-card button *ngFor="let item of data" routerLink="/quality-details/{{item.cardId}}">
+      <!-- <ion-card *ngFor="let item of data2">                    [routerLink]="['/quality-details', item.cardId]"     -->
+      <img [src]="item.img" style="width: 30%; height: auto; display: block; margin: 0 auto;"/>
+      <ion-card-header>
+        <ion-card-title>{{ item.name }}</ion-card-title>
+        <ion-card-subtitle *ngIf="item.type">Type: {{ item.type }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </ion-list>
+
+
+
+
+
+</ion-content>

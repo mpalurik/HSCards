@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Card back
+    </ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button (click)="openSettings()">
+        <ion-icon name="settings" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Card Back</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let item of data3">
+        <ion-card-header>
+          <ion-card-title>{{item.name}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <img [src]="item.img" style="width: 40%; height: auto; display: block; margin: 0 auto;"/>
+            <ion-label *ngIf="item.description" style="font-weight: bold; color: #4a90e2;">Description: </ion-label>
+            <ion-label>{{ item.description }}</ion-label>
+            <br>
+            <ion-label *ngIf="item.howToGet" style="font-style: italic; color: #7ed321;">How to get: </ion-label>
+            <ion-label>{{ item.howToGet }}</ion-label>
+          </ion-card-content>
+    </ion-card>
+  </ion-list>
+  </ion-content>
+</ion-content>

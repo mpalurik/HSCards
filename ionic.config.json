@@ -1,0 +1,7 @@
+{
+  "name": "HSCards",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
